@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>添加删除记录练习</title>
+    <link rel="stylesheet" type="text/css" href="ex_2_style/css.css" />
+    <script type="text/javascript">
+
+        window.onload = function(){
+
+            var yuansu = document.getElementById("yuansu")
+            yuansu.onclick = function(){
+                var h1 = document.getElementById("h1")
+
+                console.log(h1.parentNode)
+                // var a = this.parentNode.children
+                // console.log(a)
+                
+            }
+            
+            
+            /*
+             * 点击超链接以后，删除一个员工的信息
+             */
+
+            //获取所有额超链接
+            var allA = document.getElementsByTagName("a");
+
+            //为每个超链接都绑定一个单击响应函数
+            for(var i=0 ; i < allA.length ; i++){
+                allA[i].onclick = function(){
+                    //parentNode 获取父节点
+
+                    if(confirm("确定要"+this.parentNode.parentNode.children[0].innerHTML+"删除吗？")){
+                        console.log(this)
+                        //
+                        var tr = this.parentNode.parentNode
+
+                        tr.parentNode.removeChild(tr)
+                    }
+                    
+                    //添加元素
+                    
+                    
+                    
+                    
+                    return false
+
+
+                }
+            }
+
+        //    添加数据
+            var addEmpButton = document.getElementById("addEmpButton")
+            addEmpButton.onclick = function(){
+            //    获取三个文本的内容
+                var Arr = document.getElementsByTagName("input")
+                var name = Arr[0]
+                var email = Arr[1]
+                var salary = Arr[2]
+                
+                console.log(name.value + email.value + salary.value)
+                
+            //    创建四个th标签
+                var NameTh = document.createElement("th")
+                var emailTH = document.createElement("th")
+                var salaryTH = document.createElement("th")
+                var aTH = document.createElement("th")
+                
+                
+            //    创建一个tr标签
+                var tr = document.createElement("tr")
+                
+            //    创建一个a标签
+                var a = document.createElement("a")
+                
+            //    创建四个文本节点
+            
+                var nameText = document.createTextNode(name.value)
+                var emailText = document.createTextNode(email.value)
+                let salaryText = document.createTextNode(salary.value)
+                var aText = document.createTextNode("Delet")
+                
+                
+            //    将a和delete文本绑定
+                a.appendChild(aText)
+            
+            //    将a标签添加到第四个th标签中
+                a.href = "deleteEmp?id=004"
+                aTH.appendChild(a)
+                
+            //    四个th绑定对应的文本
+                NameTh.appendChild(nameText)
+                emailTH.appendChild(emailText)
+                salaryTH.appendChild(salaryText)
+                
+                
+                
+                
+            //    将四个th绑定在tr下
+                tr.appendChild(NameTh)
+                tr.appendChild(emailTH)
+                tr.appendChild(salaryTH)
+                tr.appendChild(aTH)
+                
+                console.log(tr)
+                
+                a = document.getElementsByTagName("a")
+                a[a.length - 1].parentNode.parentNode.parentNode.appendChild(tr)
+                
+                
+                
+            }
+    
+            
+
+        };
+
+
+    </script>
+</head>
+<body>
+
+<table id="employeeTable" border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr>
+        <td>Tom</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td><a href="javascript:;">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Jerry</td>
+        <td>jerry@sohu.com</td>
+        <td>8000</td>
+        <td><a href="deleteEmp?id=002">Delete</a></td>
+    </tr>
+    <tr>
+        <td>Bob</td>
+        <td>bob@tom.com</td>
+        <td>10000</td>
+        <td><a href="deleteEmp?id=003">Delete</a></td>
+
+    </tr>
+    <br>
+    <button id="yuansu">元素和节点学习</button>
+</table>
+
+<div id="formDiv">
+
+    <h4>添加新员工</h4>
+
+    <table>
+        <tr>
+            <td class="word">name: </td>
+            <td class="inp">
+                <input type="text" name="empName" id="empName" />
+            </td>
+        </tr>
+        <tr>
+            <td class="word">email: </td>
+            <td class="inp">
+                <input type="text" name="email" id="email" />
+            </td>
+        </tr>
+        <tr>
+            <td class="word">salary: </td>
+            <td class="inp">
+                <input type="text" name="salary" id="salary" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button id="addEmpButton" value="abc">
+                    Submit
+                </button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

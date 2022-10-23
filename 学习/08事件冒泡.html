@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+
+        #span1{
+            background-color: aquamarine;
+        }
+        
+    </style>
+    
+    <script>
+        window.onload = function(){
+            
+            let span1 = document.getElementById("span1")
+            let box1 = document.getElementById("box1")
+            
+            span1.onclick = function(event){
+                
+                console.log("span被点击了")
+                //关闭冒泡 = 真
+                event.cancelBubble = true
+            }
+            
+            box1.onclick = function(){
+                console.log("DIV倍点击了")
+            }
+            
+            document.body.onclick = function(){
+                console.log("body被点击了")
+            }
+            
+        }
+    </script>
+    
+</head>
+<body>
+    <div id="box1">
+        我是div
+        <span id="span1">我是span</span>
+    </div>
+</body>
+</html>

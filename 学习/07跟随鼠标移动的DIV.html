@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    <style>
+        
+        
+        #div1{
+            height: 50px;
+            width: 50px;
+            background-color: brown;
+            position: absolute;
+        }
+    </style>
+
+    <script>
+        
+        window.onload = function(){
+        //    绑定div
+            let div = document.getElementById("div1")
+            console.log("div的距离 = " + getComputedStyle(div,null).width)
+            let Body = document.getElementsByTagName("body")
+            
+            /*
+            *   注意：
+            *       clientX 是用来获取当前窗口鼠标位置,如果出现混动条，就会出现偏离 
+            *       可以使用pageX来代替  pageX不只支持IE8的浏览器
+            *       
+            * */
+            // Body[0].onmousemove = function(move){
+            //     // console.log(move.clientX)
+            //     div.style.left = move.pageX + "px"
+            //     div.style.top = move.pageY + "px"
+            //     console.log(div.style.left)
+            //
+            // }
+            
+            
+        //    使用clientX 来进行跟随的第二种方式
+            //document包含的是整个页面 并非可视页面
+            document.onmousemove = function(event){
+                div.style.left = event.clientX + "px"
+                div.style.top = event.clientY + document.body.parentNode.scrollTop + "px"
+                //获取滚动条到顶部的距离  scrollTop 不属于body  因为高度是body 包含body的元素是html 获取html的元素 来进行操作
+                //新问题 滚轮滑动滚动条以后，div不会立即跟随 需要挪动鼠标才可以
+                console.log(document.body.parentNode.scrollTop)
+                
+            }
+            
+            document.onscroll = function(){
+                
+            }
+            
+            function scrll(event){
+                div.style.left = event.clientX + "px"
+                div.style.top = event.clientY + document.body.parentNode.scrollTop + "px"
+                //获取滚动条到顶部的距离  scrollTop 不属于body  因为高度是body 包含body的元素是html 获取html的元素 来进行操作
+                //新问题 滚轮滑动滚动条以后，div不会立即跟随 需要挪动鼠标才可以
+                console.log(document.body.parentNode.scrollTop)
+            }
+            
+            
+        }
+        
+    </script>
+    
+    
+    
+</head>
+<body style="height: 2000px;">
+
+    <div id="div1"></div>
+</body>
+</html>

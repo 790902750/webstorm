@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<style>
+			#box1{
+				width : 200px;
+				height : 200px;
+				background-color: #0d0dc1;
+				
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				let btn = document.getElementById("btn")
+				//绑定盒子
+				let box1 = document.getElementById("box1")
+				
+                btn.onclick = function(){
+					console.log("点击了按钮")
+					box1.style.width = "500px"
+					// box1.style.background = "brown"
+					// box1.style.backgroundColor = "#"
+					// console.log(getComputedStyle(box1,null).width)
+					
+					
+				}
+				
+				
+				
+			}
+			
+		
+		</script>
+	</head>
+	<body>
+		<button id="btn">点我一下改变</button>
+		<br>
+		<br>
+		
+		
+		
+		<div id="box1"></div>
+	</body>
+</html>

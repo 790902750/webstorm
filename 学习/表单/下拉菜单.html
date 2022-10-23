@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+	<body>
+<!--		select里面的属性 size可以设置成列表样式的 size的值 是列表的行数 再裂变中使用multiple之后 按下ctrl键可以实现多选-->
+<!--		option里面的属性 selected 可以设置默认的选项-->
+<!--		再select标签内部 可以使用optgrop来进行标签的分类-->
+		<select name="se" id="se" >
+			<option value="北京">北京</option>
+			<option value="上海">上海</option>
+			<option value="上海">广州</option>
+			<optgroup label="组1">
+				<option>
+					呵呵呵
+				</option>
+				<option>
+					哈哈哈
+					
+				</option>
+			</optgroup>
+			<option value="上海">山东</option>
+			<option value="上海">香港</option>
+			<option value="上海">澳门</option>
+			<option selected value="上海">深圳</option>
+		</select>
+		<br>
+		<br>
+		<select name="se" id="se1" size="5" multiple>
+			<option value="北京">北京</option>
+			<option value="上海">上海</option>
+			<option value="上海">广州</option>
+			<option value="上海">山东</option>
+			<option value="上海">香港</option>
+			<option value="上海">澳门</option>
+			<option value="上海">深圳</option>
+		</select>
+	</body>
+</html>

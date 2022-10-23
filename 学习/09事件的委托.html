@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    <script>
+        /*
+        *   主要学习了一个event属性：target
+        *   可以获取点击的那个元素对象
+        * */
+        window.onload = function(){
+            
+            let btn01 = document.getElementById("btn01")
+            btn01.onclick = function(){
+                // var ur = document.getElementById('ul1');
+                let li=document.createElement("li")
+                li.innerHTML = "<li><a href=\'JavaScript:;\' class=\"a\">新添加的点击</a></li>"
+                let ur = document.getElementById("ul1")
+                ur.appendChild(li)
+            }
+            
+            let ur1 = document.getElementById("ul1")
+           
+            ur1.onclick = function(event){
+                
+                
+                console.log(event.target.innerHTML)
+                
+                
+            }
+            $(document).
+            
+        }
+        
+        
+        
+        
+    </script>
+    
+</head>
+<body>
+    <button id="btn01">添加新的</button>
+    <ul id="ul1">
+        <li><a href="JavaScript:;" class="a">点击</a></li>
+        <li><a href="JavaScript:;" class="a">点击2</a></li>
+        <li><a href="JavaScript:;" class="a">点击3</a></li>
+        <li><a href="JavaScript:;" class="a">点击4</a></li>
+    </ul>
+</body>
+</html>
